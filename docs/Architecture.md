@@ -7,6 +7,7 @@ flowchart LR
   A[ComicVine]-->CORE
   B[Metron]-->CORE
   C[GCD]-->CORE
+  D[shell scripts]-->CORE
   CORE(comicbook-core)-->DOCTOR[cbz-doctor]
   DOCTOR-->ORG[comic-file-organizer]
   ORG-->M[Mylar3]
