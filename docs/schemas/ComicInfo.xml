@@ -22,5 +22,5 @@
     <ISBN>978-1-23456-789-0</ISBN>
     <UPC>012345678905</UPC>
   </Identifiers>
-  <MetadataVersion>1.0.0</MetadataVersion>
+  <MetadataVersion>1</MetadataVersion>
 </ComicInfo>
