@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Canonical MetronInfo example for comics-lab -->
+<MetronInfo xmlns="http://comics-lab.org/schemas/metroninfo"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Title>Example: The Amazing Widget</Title>
+  <IssueNumber>12</IssueNumber>
+  <Publisher>Acme Comics</Publisher>
+  <Year>2025</Year>
+  <ReleaseCycle>monthly</ReleaseCycle>
+  <PlannedReleaseDate>2025-12-15</PlannedReleaseDate>
+  <Contributors>
+    <Contributor role="producer">Pat Lee</Contributor>
+  </Contributors>
+  <Tags>
+    <Tag>marketing</Tag>
+  </Tags>
+  <Identifiers>
+    <ISBN>978-1-23456-789-0</ISBN>
+  </Identifiers>
+  <Summary>Operational metadata for release cadence and staging.</Summary>
+  <MetadataVersion>1.0.0</MetadataVersion>
+</MetronInfo>

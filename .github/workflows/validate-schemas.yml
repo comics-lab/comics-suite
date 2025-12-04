@@ -1,0 +1,33 @@
+name: Validate schemas
+
+on:
+  pull_request:
+    paths:
+      - 'docs/schemas/**'
+      - '.github/workflows/validate-schemas.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+      - name: Validate XML well-formedness
+        run: |
+          set -e
+          files=$(git ls-files 'docs/schemas/*.xml' || true)
+          if [ -z "$files" ]; then echo "No XML files to validate"; exit 0; fi
+          for f in $files; do
+            xmllint --noout "$f"
+          done
+      - name: Ensure MetadataVersion exists
+        run: |
+          set -e
+          files=$(git ls-files 'docs/schemas/*.xml' || true)
+          for f in $files; do
+            if ! xmllint --xpath "boolean(//*[local-name()='MetadataVersion'])" "$f" 2>/dev/null | grep -q '1'; then
+              echo "MetadataVersion missing in $f"
+              exit 1
+            fi
+          done
