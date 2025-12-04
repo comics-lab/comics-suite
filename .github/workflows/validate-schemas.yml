@@ -11,16 +11,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Install xmllint
         run: sudo apt-get update && sudo apt-get install -y libxml2-utils
-      - name: Validate XML well-formedness
+
+      - name: Validate XML well-formedness and XSDs
         run: |
           set -e
-          files=$(git ls-files 'docs/schemas/*.xml' || true)
-          if [ -z "$files" ]; then echo "No XML files to validate"; exit 0; fi
-          for f in $files; do
+          xml_files=$(git ls-files 'docs/schemas/*.xml' || true)
+          if [ -z "$xml_files" ]; then
+            echo "No XML files to validate"
+            exit 0
+          fi
+
+          for f in $xml_files; do
+            echo "Checking well-formedness: $f"
             xmllint --noout "$f"
+
+            # Determine which schema to use by root namespace
+            ns=$(xmllint --xpath "namespace-uri(/*)" "$f" 2>/dev/null || true)
+            echo "Namespace for $f: $ns"
+
+            if [ "$ns" = "http://comics-lab.org/schemas/comicinfo" ]; then
+              xsd="docs/schemas/comicinfo.xsd"
+            elif [ "$ns" = "http://comics-lab.org/schemas/metroninfo" ]; then
+              xsd="docs/schemas/metroninfo.xsd"
+            else
+              echo "Unknown namespace ($ns) for $f — skipping XSD validation"
+              continue
+            fi
+
+            if [ ! -f "$xsd" ]; then
+              echo "XSD not found: $xsd"
+              exit 1
+            fi
+
+            echo "Validating $f against $xsd"
+            xmllint --noout --schema "$xsd" "$f"
           done
+
       - name: Ensure MetadataVersion exists
         run: |
           set -e
