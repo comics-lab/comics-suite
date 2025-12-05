@@ -55,7 +55,7 @@ jobs:
           set -e
           files=$(git ls-files 'docs/schemas/*.xml' || true)
           for f in $files; do
-            if ! xmllint --xpath "boolean(//*[local-name()='MetadataVersion'])" "$f" 2>/dev/null | grep -q '1'; then
+            if ! xmllint --xpath "boolean(//*[local-name()='MetadataVersion'])" "$f" 2>/dev/null | grep -q 'true'; then
               echo "MetadataVersion missing in $f"
               exit 1
             fi
