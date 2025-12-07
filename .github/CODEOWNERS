@@ -1,0 +1,7 @@
+# Owners for schema and repo changes
+# Replace teams/usernames with real org teams or usernames
+/docs/schemas/ @comics-lab/schema-maintainers @rmleonard
+/.github/workflows/validate-schemas.yml @comics-lab/ci-maintainers @rmleonard
+/docs/repo_structure_COMICS_LAB.md @comics-lab/docs @rmleonard
+/docs/logs/ @comics-lab/docs @rmleonard
+* @comics-lab/admins

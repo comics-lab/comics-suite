@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Canonical ComicInfo example for comics-lab -->
+<ComicInfo xmlns="http://comics-lab.org/schemas/comicinfo"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Title>Example: The Amazing Widget</Title>
+  <Issue>Special Edition</Issue>
+  <IssueNumber>12</IssueNumber>
+  <Volume>1</Volume>
+  <Publisher>Acme Comics</Publisher>
+  <Year>2025</Year>
+  <Creators>
+    <Creator role="writer">Jane Doe</Creator>
+    <Creator role="artist">John Smith</Creator>
+  </Creators>
+  <Tags>
+    <Tag>superhero</Tag>
+    <Tag>sci-fi</Tag>
+  </Tags>
+  <Summary>Short blurb about this issue.</Summary>
+  <CoverImage>covers/the-amazing-widget-12.jpg</CoverImage>
+  <Identifiers>
+    <ISBN>978-1-23456-789-0</ISBN>
+    <UPC>012345678905</UPC>
+  </Identifiers>
+  <MetadataVersion>1</MetadataVersion>
+</ComicInfo>

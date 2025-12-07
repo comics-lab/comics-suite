@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://comics-lab.org/schemas/metroninfo"
+           xmlns="http://comics-lab.org/schemas/metroninfo"
+           elementFormDefault="qualified">
+
+  <xs:element name="MetronInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Title" type="xs:string"/>
+        <xs:element name="IssueNumber" type="xs:string" minOccurs="0"/>
+        <xs:element name="Publisher" type="xs:string" minOccurs="0"/>
+        <xs:element name="Year" type="xs:gYear" minOccurs="0"/>
+        <xs:element name="ReleaseCycle" type="xs:string" minOccurs="0"/>
+        <xs:element name="PlannedReleaseDate" type="xs:date" minOccurs="0"/>
+        <xs:element name="Contributors" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Contributor" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="role" type="xs:string" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tags" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tag" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Identifiers" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ISBN" type="xs:string" minOccurs="0"/>
+              <xs:element name="UPC" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Summary" type="xs:string" minOccurs="0"/>
+        <xs:element name="MetadataVersion" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="SemanticVersion">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d+\.\d+\.\d+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
