@@ -1,0 +1,997 @@
+===== lsusb =====
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 0b05:19af ASUSTek Computer, Inc. AURA LED Controller
+Bus 001 Device 003: ID 2109:2822 VIA Labs, Inc. USB2.0 Hub             
+Bus 001 Device 004: ID 174c:2074 ASMedia Technology Inc. ASM1074 High-Speed hub
+Bus 001 Device 005: ID 413c:a506 Dell Computer Corp. DELL PROFESSIONAL SOUND BAR AE515
+Bus 001 Device 006: ID 8087:0026 Intel Corp. AX201 Bluetooth
+Bus 001 Device 007: ID 0bc2:ab3a Seagate RSS LLC Backup+ Hub
+Bus 001 Device 008: ID 046d:c52b Logitech, Inc. Unifying Receiver
+Bus 001 Device 009: ID 0bc2:ab44 Seagate RSS LLC Backup Plus Hub
+Bus 001 Device 010: ID 04f2:1829 Chicony Electronics Co., Ltd USB Wireless Keyboard
+Bus 001 Device 011: ID 2109:2822 VIA Labs, Inc. USB2.0 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 002: ID 152d:0561 JMicron Technology Corp. / JMicron USA Technology Corp. JMS551 - Sharkoon SATA QuickPort Duo
+Bus 002 Device 003: ID 2109:0822 VIA Labs, Inc. USB3.1 Hub             
+Bus 002 Device 004: ID 174c:3074 ASMedia Technology Inc. ASM1074 SuperSpeed hub
+Bus 002 Device 005: ID 2109:0822 VIA Labs, Inc. USB3.1 Hub             
+Bus 002 Device 006: ID 0bc2:ab3b Seagate RSS LLC Backup+ Hub
+Bus 002 Device 007: ID 0bc2:ab45 Seagate RSS LLC Backup+ Hub
+Bus 002 Device 008: ID 0bc2:ab38 Seagate RSS LLC Backup Plus Hub (Mass Storage)
+Bus 002 Device 009: ID 1058:25fb Western Digital Technologies, Inc. easystore Desktop (WDBCKA)
+Bus 002 Device 010: ID 0bc2:ab38 Seagate RSS LLC Backup Plus Hub (Mass Storage)
+
+===== lsusb -t =====
+/:  Bus 001.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/16p, 480M
+    |__ Port 002: Dev 002, If 0, Class=Vendor Specific Class, Driver=[none], 12M
+    |__ Port 002: Dev 002, If 2, Class=Human Interface Device, Driver=usbhid, 12M
+    |__ Port 004: Dev 003, If 0, Class=Hub, Driver=hub/4p, 480M
+        |__ Port 001: Dev 005, If 0, Class=Audio, Driver=snd-usb-audio, 12M
+        |__ Port 001: Dev 005, If 1, Class=Audio, Driver=snd-usb-audio, 12M
+        |__ Port 001: Dev 005, If 2, Class=Audio, Driver=snd-usb-audio, 12M
+        |__ Port 001: Dev 005, If 3, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 002: Dev 008, If 0, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 002: Dev 008, If 1, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 002: Dev 008, If 2, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 003: Dev 010, If 0, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 003: Dev 010, If 1, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 003: Dev 010, If 2, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 003: Dev 010, If 3, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 004: Dev 011, If 0, Class=Hub, Driver=hub/4p, 480M
+    |__ Port 006: Dev 004, If 0, Class=Hub, Driver=hub/4p, 480M
+        |__ Port 001: Dev 007, If 0, Class=Hub, Driver=hub/3p, 480M
+        |__ Port 003: Dev 009, If 0, Class=Hub, Driver=hub/3p, 480M
+    |__ Port 014: Dev 006, If 0, Class=Wireless, Driver=btusb, 12M
+    |__ Port 014: Dev 006, If 1, Class=Wireless, Driver=btusb, 12M
+/:  Bus 002.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/9p, 20000M/x2
+    |__ Port 001: Dev 002, If 0, Class=Mass Storage, Driver=uas, 5000M
+    |__ Port 003: Dev 003, If 0, Class=Hub, Driver=hub/4p, 10000M
+        |__ Port 004: Dev 005, If 0, Class=Hub, Driver=hub/4p, 10000M
+    |__ Port 009: Dev 004, If 0, Class=Hub, Driver=hub/4p, 5000M
+        |__ Port 001: Dev 006, If 0, Class=Hub, Driver=hub/3p, 5000M
+            |__ Port 003: Dev 008, If 0, Class=Mass Storage, Driver=uas, 5000M
+        |__ Port 003: Dev 007, If 0, Class=Hub, Driver=hub/3p, 5000M
+            |__ Port 001: Dev 010, If 0, Class=Mass Storage, Driver=uas, 5000M
+        |__ Port 004: Dev 009, If 0, Class=Mass Storage, Driver=usb-storage, 5000M
+
+===== dmesg | grep -i usb =====
+
+===== lsblk (detailed) =====
+NAME          SIZE TYPE FSTYPE MOUNTPOINT          MODEL                 UUID
+loop0        50.9M loop        /snap/snapd/25577                         
+loop1        71.6M loop        /snap/certbot/5234                        
+loop2       104.2M loop        /snap/core/17212                          
+loop3       104.2M loop        /snap/core/17247                          
+loop4        66.8M loop        /snap/core24/1237                         
+loop5        71.6M loop        /snap/certbot/5214                        
+loop6        66.8M loop        /snap/core24/1225                         
+loop7        50.8M loop        /snap/snapd/25202                         
+sda           3.6T disk btrfs  /mnt/grackle        ST4000VN008-2DR166    f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+sdb           3.6T disk btrfs                      ST4000VN008-2DR166    f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+sdc           3.6T disk                            ST4000VN008-2DR166    
+├─sdc1        512M part vfat                                             8BF0-77A1
+└─sdc2        3.6T part btrfs  /home                                     ddebca57-8bb6-4f42-ad47-50717a12b35f
+sdd           3.6T disk                            ST4000DM000-1F2168    
+├─sdd1        512M part vfat                                             AD7E-0E00
+└─sdd2        3.6T part btrfs                                            ddebca57-8bb6-4f42-ad47-50717a12b35f
+sde          12.7T disk btrfs  /mnt/fearless       ST14000NM0018-2H4101  4206e486-a20a-48cc-9917-560daf72f366
+sdf          12.7T disk btrfs                      ST14000NM0018-2H4101  4206e486-a20a-48cc-9917-560daf72f366
+sdg           7.3T disk                            Backup+ Hub BK        
+└─sdg1        7.3T part ext4   /mnt/data                                 08c85170-4b99-4069-9ed6-44a05f8119e4
+sdh           9.1T disk                            Backup+ Hub BK        
+└─sdh1        9.1T part ext4   /mnt/arcs                                 f8254cdb-e86f-43c3-891c-f3880f450958
+sdi           9.1T disk                            WDC WD100EMAZ-00WJTA0 
+└─sdi1        9.1T part ext4   /mnt/pubs                                 c7c3d90c-7819-4aa0-a3f9-0d915a1464bb
+nvme0n1     931.5G disk                            KINGSTON SNV2S1000G   
+├─nvme0n1p1   512M part vfat   /boot/efi                                 E4A4-0497
+└─nvme0n1p2   931G part ext4   /media/oldboot_root                       37c96686-16ef-4357-bba4-6b3b6f0b7468
+nvme1n1     931.5G disk                            KINGSTON SNV2S1000G   
+└─nvme1n1p1 931.5G part ext4   /home/rmleonard_old                       df809c3e-0765-44b8-a275-45e4e1f2b499
+
+===== lsblk -f =====
+NAME        FSTYPE FSVER LABEL    UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+loop0                                                                        0   100% /snap/snapd/25577
+loop1                                                                        0   100% /snap/certbot/5234
+loop2                                                                        0   100% /snap/core/17212
+loop3                                                                        0   100% /snap/core/17247
+loop4                                                                        0   100% /snap/core24/1237
+loop5                                                                        0   100% /snap/certbot/5214
+loop6                                                                        0   100% /snap/core24/1225
+loop7                                                                        0   100% /snap/snapd/25202
+sda         btrfs        grackle  f573e10c-b96d-4a9d-b6ed-12fe8d31ba73  146.8G    96% /mnt/grackle
+sdb         btrfs        grackle  f573e10c-b96d-4a9d-b6ed-12fe8d31ba73                
+sdc                                                                                   
+├─sdc1      vfat   FAT32 ESP      8BF0-77A1                                           
+└─sdc2      btrfs                 ddebca57-8bb6-4f42-ad47-50717a12b35f    1.5T    58% /home
+                                                                                      /
+sdd                                                                                   
+├─sdd1      vfat   FAT32 ESP      AD7E-0E00                                           
+└─sdd2      btrfs                 ddebca57-8bb6-4f42-ad47-50717a12b35f                
+sde         btrfs        fearless 4206e486-a20a-48cc-9917-560daf72f366  454.9G    97% /mnt/shortbox
+                                                                                      /mnt/pubs/Comics/Publishers/DC
+                                                                                      /mnt/longbox
+                                                                                      /mnt/DC
+                                                                                      /mnt/fearless
+sdf         btrfs        fearless 4206e486-a20a-48cc-9917-560daf72f366                
+sdg                                                                                   
+└─sdg1      ext4   1.0   data8    08c85170-4b99-4069-9ed6-44a05f8119e4  237.1G    92% /mnt/data
+sdh                                                                                   
+└─sdh1      ext4   1.0   TENTB2   f8254cdb-e86f-43c3-891c-f3880f450958  400.9G    91% /mnt/arcs
+sdi                                                                                   
+└─sdi1      ext4   1.0   TENTB    c7c3d90c-7819-4aa0-a3f9-0d915a1464bb  406.6G    91% /mnt/Marvel
+                                                                                      /mnt/pubs
+nvme0n1                                                                               
+├─nvme0n1p1 vfat   FAT32          E4A4-0497                             504.8M     1% /boot/efi
+└─nvme0n1p2 ext4   1.0            37c96686-16ef-4357-bba4-6b3b6f0b7468    124G    81% /media/oldboot_root
+nvme1n1                                                                               
+└─nvme1n1p1 ext4   1.0   fantasy  df809c3e-0765-44b8-a275-45e4e1f2b499  190.8G    74% /home/rmleonard_old
+
+===== udevadm info =====
+--- /dev/sda ---
+P: /devices/pci0000:00/0000:00:17.0/ata5/host4/target4:0:0/4:0:0:0/block/sda
+M: sda
+U: block
+T: disk
+D: b 8:0
+N: sda
+L: 0
+S: disk/by-path/pci-0000:00:17.0-ata-5
+S: disk/by-path/pci-0000:00:17.0-ata-5.0
+S: disk/by-id/ata-ST4000VN008-2DR166_ZGY8TC11
+S: disk/by-label/grackle
+S: disk/by-uuid/f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+S: disk/by-id/wwn-0x5000c500c89d81aa
+S: disk/by-diskseq/11
+Q: 11
+E: DEVPATH=/devices/pci0000:00/0000:00:17.0/ata5/host4/target4:0:0/4:0:0:0/block/sda
+E: DEVNAME=/dev/sda
+E: DEVTYPE=disk
+E: DISKSEQ=11
+E: MAJOR=8
+E: MINOR=0
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=1144309
+E: ID_ATA=1
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=ST4000VN008-2DR166
+E: ID_MODEL_ENC=ST4000VN008-2DR166\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+E: ID_REVISION=SC60
+E: ID_SERIAL=ST4000VN008-2DR166_ZGY8TC11
+E: ID_SERIAL_SHORT=ZGY8TC11
+E: ID_ATA_WRITE_CACHE=1
+E: ID_ATA_WRITE_CACHE_ENABLED=1
+E: ID_ATA_FEATURE_SET_HPA=1
+E: ID_ATA_FEATURE_SET_HPA_ENABLED=1
+E: ID_ATA_FEATURE_SET_PM=1
+E: ID_ATA_FEATURE_SET_PM_ENABLED=1
+E: ID_ATA_FEATURE_SET_SECURITY=1
+E: ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+E: ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=428
+E: ID_ATA_FEATURE_SET_SECURITY_ENHANCED_ERASE_UNIT_MIN=428
+E: ID_ATA_FEATURE_SET_SECURITY_FROZEN=1
+E: ID_ATA_FEATURE_SET_SMART=1
+E: ID_ATA_FEATURE_SET_SMART_ENABLED=1
+E: ID_ATA_FEATURE_SET_PUIS=1
+E: ID_ATA_FEATURE_SET_PUIS_ENABLED=0
+E: ID_ATA_FEATURE_SET_APM=1
+E: ID_ATA_FEATURE_SET_APM_ENABLED=1
+E: ID_ATA_FEATURE_SET_APM_CURRENT_VALUE=254
+E: ID_ATA_DOWNLOAD_MICROCODE=1
+E: ID_ATA_SATA=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN2=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN1=1
+E: ID_ATA_ROTATION_RATE_RPM=5980
+E: ID_WWN=0x5000c500c89d81aa
+E: ID_WWN_WITH_EXTENSION=0x5000c500c89d81aa
+E: ID_ATA_PERIPHERAL_DEVICE_TYPE=0
+E: ID_PATH=pci-0000:00:17.0-ata-5.0
+E: ID_PATH_TAG=pci-0000_00_17_0-ata-5_0
+E: ID_PATH_ATA_COMPAT=pci-0000:00:17.0-ata-5
+E: ID_FS_LABEL=grackle
+E: ID_FS_LABEL_ENC=grackle
+E: ID_FS_UUID=f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+E: ID_FS_UUID_ENC=f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+E: ID_FS_UUID_SUB=10e94db6-8656-4f91-83c8-aaeafca5dda7
+E: ID_FS_UUID_SUB_ENC=10e94db6-8656-4f91-83c8-aaeafca5dda7
+E: ID_FS_BLOCKSIZE=4096
+E: ID_FS_LASTBLOCK=1953509292
+E: ID_FS_SIZE=8001574060032
+E: ID_FS_TYPE=btrfs
+E: ID_FS_USAGE=filesystem
+E: ID_BTRFS_READY=1
+E: DEVLINKS=/dev/disk/by-path/pci-0000:00:17.0-ata-5 /dev/disk/by-path/pci-0000:00:17.0-ata-5.0 /dev/disk/by-id/ata-ST4000VN008-2DR166_ZGY8TC11 /dev/disk/by-label/grackle /dev/disk/by-uuid/f573e10c-b96d-4a9d-b6ed-12fe8d31ba73 /dev/disk/by-id/wwn-0x5000c500c89d81aa /dev/disk/by-diskseq/11
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sdb ---
+P: /devices/pci0000:00/0000:00:17.0/ata6/host5/target5:0:0/5:0:0:0/block/sdb
+M: sdb
+U: block
+T: disk
+D: b 8:16
+N: sdb
+L: 0
+S: disk/by-id/wwn-0x5000c500c89d75e4
+S: disk/by-path/pci-0000:00:17.0-ata-6
+S: disk/by-id/ata-ST4000VN008-2DR166_ZGY8T2TN
+S: disk/by-uuid/f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+S: disk/by-path/pci-0000:00:17.0-ata-6.0
+S: disk/by-diskseq/12
+S: disk/by-label/grackle
+Q: 12
+E: DEVPATH=/devices/pci0000:00/0000:00:17.0/ata6/host5/target5:0:0/5:0:0:0/block/sdb
+E: DEVNAME=/dev/sdb
+E: DEVTYPE=disk
+E: DISKSEQ=12
+E: MAJOR=8
+E: MINOR=16
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=1171657
+E: ID_ATA=1
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=ST4000VN008-2DR166
+E: ID_MODEL_ENC=ST4000VN008-2DR166\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+E: ID_REVISION=SC60
+E: ID_SERIAL=ST4000VN008-2DR166_ZGY8T2TN
+E: ID_SERIAL_SHORT=ZGY8T2TN
+E: ID_ATA_WRITE_CACHE=1
+E: ID_ATA_WRITE_CACHE_ENABLED=1
+E: ID_ATA_FEATURE_SET_HPA=1
+E: ID_ATA_FEATURE_SET_HPA_ENABLED=1
+E: ID_ATA_FEATURE_SET_PM=1
+E: ID_ATA_FEATURE_SET_PM_ENABLED=1
+E: ID_ATA_FEATURE_SET_SECURITY=1
+E: ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+E: ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=428
+E: ID_ATA_FEATURE_SET_SECURITY_ENHANCED_ERASE_UNIT_MIN=428
+E: ID_ATA_FEATURE_SET_SECURITY_FROZEN=1
+E: ID_ATA_FEATURE_SET_SMART=1
+E: ID_ATA_FEATURE_SET_SMART_ENABLED=1
+E: ID_ATA_FEATURE_SET_PUIS=1
+E: ID_ATA_FEATURE_SET_PUIS_ENABLED=0
+E: ID_ATA_FEATURE_SET_APM=1
+E: ID_ATA_FEATURE_SET_APM_ENABLED=1
+E: ID_ATA_FEATURE_SET_APM_CURRENT_VALUE=254
+E: ID_ATA_DOWNLOAD_MICROCODE=1
+E: ID_ATA_SATA=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN2=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN1=1
+E: ID_ATA_ROTATION_RATE_RPM=5980
+E: ID_WWN=0x5000c500c89d75e4
+E: ID_WWN_WITH_EXTENSION=0x5000c500c89d75e4
+E: ID_ATA_PERIPHERAL_DEVICE_TYPE=0
+E: ID_PATH=pci-0000:00:17.0-ata-6.0
+E: ID_PATH_TAG=pci-0000_00_17_0-ata-6_0
+E: ID_PATH_ATA_COMPAT=pci-0000:00:17.0-ata-6
+E: ID_FS_LABEL=grackle
+E: ID_FS_LABEL_ENC=grackle
+E: ID_FS_UUID=f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+E: ID_FS_UUID_ENC=f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+E: ID_FS_UUID_SUB=4ac84471-5f58-454a-a319-8f7bc1b273a2
+E: ID_FS_UUID_SUB_ENC=4ac84471-5f58-454a-a319-8f7bc1b273a2
+E: ID_FS_BLOCKSIZE=4096
+E: ID_FS_LASTBLOCK=1953509292
+E: ID_FS_SIZE=8001574060032
+E: ID_FS_TYPE=btrfs
+E: ID_FS_USAGE=filesystem
+E: ID_BTRFS_READY=1
+E: DEVLINKS=/dev/disk/by-id/wwn-0x5000c500c89d75e4 /dev/disk/by-path/pci-0000:00:17.0-ata-6 /dev/disk/by-id/ata-ST4000VN008-2DR166_ZGY8T2TN /dev/disk/by-uuid/f573e10c-b96d-4a9d-b6ed-12fe8d31ba73 /dev/disk/by-path/pci-0000:00:17.0-ata-6.0 /dev/disk/by-diskseq/12 /dev/disk/by-label/grackle
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sdc ---
+P: /devices/pci0000:00/0000:00:17.0/ata7/host6/target6:0:0/6:0:0:0/block/sdc
+M: sdc
+U: block
+T: disk
+D: b 8:32
+N: sdc
+L: 0
+S: disk/by-path/pci-0000:00:17.0-ata-7.0
+S: disk/by-id/ata-ST4000VN008-2DR166_ZGY8Z0G8
+S: disk/by-id/wwn-0x5000c500c8e5d3c2
+S: disk/by-diskseq/13
+S: disk/by-path/pci-0000:00:17.0-ata-7
+Q: 13
+E: DEVPATH=/devices/pci0000:00/0000:00:17.0/ata7/host6/target6:0:0/6:0:0:0/block/sdc
+E: DEVNAME=/dev/sdc
+E: DEVTYPE=disk
+E: DISKSEQ=13
+E: MAJOR=8
+E: MINOR=32
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=1329233
+E: ID_ATA=1
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=ST4000VN008-2DR166
+E: ID_MODEL_ENC=ST4000VN008-2DR166\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+E: ID_REVISION=SC60
+E: ID_SERIAL=ST4000VN008-2DR166_ZGY8Z0G8
+E: ID_SERIAL_SHORT=ZGY8Z0G8
+E: ID_ATA_WRITE_CACHE=1
+E: ID_ATA_WRITE_CACHE_ENABLED=1
+E: ID_ATA_FEATURE_SET_HPA=1
+E: ID_ATA_FEATURE_SET_HPA_ENABLED=1
+E: ID_ATA_FEATURE_SET_PM=1
+E: ID_ATA_FEATURE_SET_PM_ENABLED=1
+E: ID_ATA_FEATURE_SET_SECURITY=1
+E: ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+E: ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=448
+E: ID_ATA_FEATURE_SET_SECURITY_ENHANCED_ERASE_UNIT_MIN=448
+E: ID_ATA_FEATURE_SET_SECURITY_FROZEN=1
+E: ID_ATA_FEATURE_SET_SMART=1
+E: ID_ATA_FEATURE_SET_SMART_ENABLED=1
+E: ID_ATA_FEATURE_SET_PUIS=1
+E: ID_ATA_FEATURE_SET_PUIS_ENABLED=0
+E: ID_ATA_FEATURE_SET_APM=1
+E: ID_ATA_FEATURE_SET_APM_ENABLED=1
+E: ID_ATA_FEATURE_SET_APM_CURRENT_VALUE=254
+E: ID_ATA_DOWNLOAD_MICROCODE=1
+E: ID_ATA_SATA=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN2=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN1=1
+E: ID_ATA_ROTATION_RATE_RPM=5980
+E: ID_WWN=0x5000c500c8e5d3c2
+E: ID_WWN_WITH_EXTENSION=0x5000c500c8e5d3c2
+E: ID_ATA_PERIPHERAL_DEVICE_TYPE=0
+E: ID_PATH=pci-0000:00:17.0-ata-7.0
+E: ID_PATH_TAG=pci-0000_00_17_0-ata-7_0
+E: ID_PATH_ATA_COMPAT=pci-0000:00:17.0-ata-7
+E: ID_PART_TABLE_UUID=58bb528c-f0c6-4c7a-baf8-b62a11875c8d
+E: ID_PART_TABLE_TYPE=gpt
+E: DEVLINKS=/dev/disk/by-path/pci-0000:00:17.0-ata-7.0 /dev/disk/by-id/ata-ST4000VN008-2DR166_ZGY8Z0G8 /dev/disk/by-id/wwn-0x5000c500c8e5d3c2 /dev/disk/by-diskseq/13 /dev/disk/by-path/pci-0000:00:17.0-ata-7
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sdd ---
+P: /devices/pci0000:00/0000:00:17.0/ata8/host7/target7:0:0/7:0:0:0/block/sdd
+M: sdd
+U: block
+T: disk
+D: b 8:48
+N: sdd
+L: 0
+S: disk/by-diskseq/14
+S: disk/by-id/ata-ST4000DM000-1F2168_Z301KXK7
+S: disk/by-id/wwn-0x5000c50066b1b790
+S: disk/by-path/pci-0000:00:17.0-ata-8
+S: disk/by-path/pci-0000:00:17.0-ata-8.0
+Q: 14
+E: DEVPATH=/devices/pci0000:00/0000:00:17.0/ata8/host7/target7:0:0/7:0:0:0/block/sdd
+E: DEVNAME=/dev/sdd
+E: DEVTYPE=disk
+E: DISKSEQ=14
+E: MAJOR=8
+E: MINOR=48
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=1334551
+E: ID_ATA=1
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=ST4000DM000-1F2168
+E: ID_MODEL_ENC=ST4000DM000-1F2168\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+E: ID_REVISION=CC54
+E: ID_SERIAL=ST4000DM000-1F2168_Z301KXK7
+E: ID_SERIAL_SHORT=Z301KXK7
+E: ID_ATA_WRITE_CACHE=1
+E: ID_ATA_WRITE_CACHE_ENABLED=1
+E: ID_ATA_FEATURE_SET_HPA=1
+E: ID_ATA_FEATURE_SET_HPA_ENABLED=1
+E: ID_ATA_FEATURE_SET_PM=1
+E: ID_ATA_FEATURE_SET_PM_ENABLED=1
+E: ID_ATA_FEATURE_SET_SECURITY=1
+E: ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+E: ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=494
+E: ID_ATA_FEATURE_SET_SECURITY_ENHANCED_ERASE_UNIT_MIN=494
+E: ID_ATA_FEATURE_SET_SECURITY_FROZEN=1
+E: ID_ATA_FEATURE_SET_SMART=1
+E: ID_ATA_FEATURE_SET_SMART_ENABLED=1
+E: ID_ATA_FEATURE_SET_PUIS=1
+E: ID_ATA_FEATURE_SET_PUIS_ENABLED=0
+E: ID_ATA_FEATURE_SET_APM=1
+E: ID_ATA_FEATURE_SET_APM_ENABLED=1
+E: ID_ATA_FEATURE_SET_APM_CURRENT_VALUE=254
+E: ID_ATA_DOWNLOAD_MICROCODE=1
+E: ID_ATA_SATA=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN2=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN1=1
+E: ID_ATA_ROTATION_RATE_RPM=5900
+E: ID_WWN=0x5000c50066b1b790
+E: ID_WWN_WITH_EXTENSION=0x5000c50066b1b790
+E: ID_ATA_PERIPHERAL_DEVICE_TYPE=0
+E: ID_PATH=pci-0000:00:17.0-ata-8.0
+E: ID_PATH_TAG=pci-0000_00_17_0-ata-8_0
+E: ID_PATH_ATA_COMPAT=pci-0000:00:17.0-ata-8
+E: ID_PART_TABLE_UUID=90050640-c5b8-4aa1-97aa-d18c531192e1
+E: ID_PART_TABLE_TYPE=gpt
+E: DEVLINKS=/dev/disk/by-diskseq/14 /dev/disk/by-id/ata-ST4000DM000-1F2168_Z301KXK7 /dev/disk/by-id/wwn-0x5000c50066b1b790 /dev/disk/by-path/pci-0000:00:17.0-ata-8 /dev/disk/by-path/pci-0000:00:17.0-ata-8.0
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sde ---
+P: /devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.0/host8/target8:0:0/8:0:0:0/block/sde
+M: sde
+U: block
+T: disk
+D: b 8:64
+N: sde
+L: 0
+S: disk/by-path/pci-0000:00:14.0-usbv3-0:1:1.0-scsi-0:0:0:0
+S: disk/by-diskseq/15
+S: disk/by-path/pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:0
+S: disk/by-id/usb-PRO-T2_AVOLUSION_DD564198838F1-0:0
+S: disk/by-uuid/4206e486-a20a-48cc-9917-560daf72f366
+S: disk/by-label/fearless
+S: disk/by-id/ata-ST14000NM0018-2H4101_ZHZ36F6D
+Q: 15
+E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.0/host8/target8:0:0/8:0:0:0/block/sde
+E: DEVNAME=/dev/sde
+E: DEVTYPE=disk
+E: DISKSEQ=15
+E: MAJOR=8
+E: MINOR=64
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=3940092
+E: ID_ATA=1
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=ST14000NM0018-2H4101
+E: ID_MODEL_ENC=ST14000NM0018-2H4101\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+E: ID_REVISION=SN04
+E: ID_SERIAL=ST14000NM0018-2H4101_ZHZ36F6D
+E: ID_SERIAL_SHORT=ZHZ36F6D
+E: ID_ATA_WRITE_CACHE=1
+E: ID_ATA_WRITE_CACHE_ENABLED=1
+E: ID_ATA_FEATURE_SET_HPA=1
+E: ID_ATA_FEATURE_SET_HPA_ENABLED=1
+E: ID_ATA_FEATURE_SET_PM=1
+E: ID_ATA_FEATURE_SET_PM_ENABLED=1
+E: ID_ATA_FEATURE_SET_SECURITY=1
+E: ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+E: ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=510
+E: ID_ATA_FEATURE_SET_SECURITY_FROZEN=1
+E: ID_ATA_FEATURE_SET_SMART=1
+E: ID_ATA_FEATURE_SET_SMART_ENABLED=1
+E: ID_ATA_FEATURE_SET_APM=1
+E: ID_ATA_FEATURE_SET_APM_ENABLED=1
+E: ID_ATA_FEATURE_SET_APM_CURRENT_VALUE=254
+E: ID_ATA_SATA=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN2=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN1=1
+E: ID_ATA_ROTATION_RATE_RPM=7200
+E: ID_ATA_PERIPHERAL_DEVICE_TYPE=0
+E: ID_USB_MODEL=AVOLUSION
+E: ID_USB_MODEL_ENC=AVOLUSION\x20\x20\x20\x20\x20\x20\x20
+E: ID_USB_MODEL_ID=0561
+E: ID_USB_SERIAL=PRO-T2_AVOLUSION_DD564198838F1-0:0
+E: ID_USB_SERIAL_SHORT=DD564198838F1
+E: ID_USB_VENDOR=PRO-T2
+E: ID_USB_VENDOR_ENC=PRO-T2\x20\x20
+E: ID_USB_VENDOR_ID=152d
+E: ID_USB_REVISION=8139
+E: ID_USB_TYPE=disk
+E: ID_USB_INSTANCE=0:0
+E: ID_USB_INTERFACES=:080650:080662:
+E: ID_USB_INTERFACE_NUM=00
+E: ID_USB_DRIVER=uas
+E: ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv3-0:1:1.0-scsi-0:0:0:0
+E: ID_PATH=pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:0
+E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_1_1_0-scsi-0_0_0_0
+E: ID_FS_LABEL=fearless
+E: ID_FS_LABEL_ENC=fearless
+E: ID_FS_UUID=4206e486-a20a-48cc-9917-560daf72f366
+E: ID_FS_UUID_ENC=4206e486-a20a-48cc-9917-560daf72f366
+E: ID_FS_UUID_SUB=9c5770fd-8f5b-461a-92db-935c78694849
+E: ID_FS_UUID_SUB_ENC=9c5770fd-8f5b-461a-92db-935c78694849
+E: ID_FS_BLOCKSIZE=4096
+E: ID_FS_LASTBLOCK=6836191232
+E: ID_FS_SIZE=28001039286272
+E: ID_FS_TYPE=btrfs
+E: ID_FS_USAGE=filesystem
+E: ID_BTRFS_READY=1
+E: DEVLINKS=/dev/disk/by-path/pci-0000:00:14.0-usbv3-0:1:1.0-scsi-0:0:0:0 /dev/disk/by-diskseq/15 /dev/disk/by-path/pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-PRO-T2_AVOLUSION_DD564198838F1-0:0 /dev/disk/by-uuid/4206e486-a20a-48cc-9917-560daf72f366 /dev/disk/by-label/fearless /dev/disk/by-id/ata-ST14000NM0018-2H4101_ZHZ36F6D
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sdf ---
+P: /devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.0/host8/target8:0:0/8:0:0:1/block/sdf
+M: sdf
+U: block
+T: disk
+D: b 8:80
+N: sdf
+L: 0
+S: disk/by-diskseq/16
+S: disk/by-id/ata-ST14000NM0018-2H4101_ZHZ32QGJ
+S: disk/by-path/pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:1
+S: disk/by-id/usb-PRO-T2_AVOLUSION_DD564198838F1-0:1
+S: disk/by-uuid/4206e486-a20a-48cc-9917-560daf72f366
+S: disk/by-path/pci-0000:00:14.0-usbv3-0:1:1.0-scsi-0:0:0:1
+S: disk/by-id/wwn-0x5000c500b6319f42
+S: disk/by-label/fearless
+Q: 16
+E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.0/host8/target8:0:0/8:0:0:1/block/sdf
+E: DEVNAME=/dev/sdf
+E: DEVTYPE=disk
+E: DISKSEQ=16
+E: MAJOR=8
+E: MINOR=80
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=3942104
+E: ID_ATA=1
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=ST14000NM0018-2H4101
+E: ID_MODEL_ENC=ST14000NM0018-2H4101\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+E: ID_REVISION=SN04
+E: ID_SERIAL=ST14000NM0018-2H4101_ZHZ32QGJ
+E: ID_SERIAL_SHORT=ZHZ32QGJ
+E: ID_ATA_WRITE_CACHE=1
+E: ID_ATA_WRITE_CACHE_ENABLED=1
+E: ID_ATA_FEATURE_SET_PM=1
+E: ID_ATA_FEATURE_SET_PM_ENABLED=1
+E: ID_ATA_FEATURE_SET_SECURITY=1
+E: ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+E: ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=66808
+E: ID_ATA_FEATURE_SET_SECURITY_ENHANCED_ERASE_UNIT_MIN=66808
+E: ID_ATA_FEATURE_SET_SMART=1
+E: ID_ATA_FEATURE_SET_SMART_ENABLED=1
+E: ID_ATA_FEATURE_SET_PUIS=1
+E: ID_ATA_FEATURE_SET_PUIS_ENABLED=0
+E: ID_ATA_DOWNLOAD_MICROCODE=1
+E: ID_ATA_SATA=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN2=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN1=1
+E: ID_ATA_ROTATION_RATE_RPM=7200
+E: ID_WWN=0x5000c500b6319f42
+E: ID_WWN_WITH_EXTENSION=0x5000c500b6319f42
+E: ID_ATA_PERIPHERAL_DEVICE_TYPE=0
+E: ID_USB_MODEL=AVOLUSION
+E: ID_USB_MODEL_ENC=AVOLUSION\x20\x20\x20\x20\x20\x20\x20
+E: ID_USB_MODEL_ID=0561
+E: ID_USB_SERIAL=PRO-T2_AVOLUSION_DD564198838F1-0:1
+E: ID_USB_SERIAL_SHORT=DD564198838F1
+E: ID_USB_VENDOR=PRO-T2
+E: ID_USB_VENDOR_ENC=PRO-T2\x20\x20
+E: ID_USB_VENDOR_ID=152d
+E: ID_USB_REVISION=8139
+E: ID_USB_TYPE=disk
+E: ID_USB_INSTANCE=0:1
+E: ID_USB_INTERFACES=:080650:080662:
+E: ID_USB_INTERFACE_NUM=00
+E: ID_USB_DRIVER=uas
+E: ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv3-0:1:1.0-scsi-0:0:0:1
+E: ID_PATH=pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:1
+E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_1_1_0-scsi-0_0_0_1
+E: ID_FS_LABEL=fearless
+E: ID_FS_LABEL_ENC=fearless
+E: ID_FS_UUID=4206e486-a20a-48cc-9917-560daf72f366
+E: ID_FS_UUID_ENC=4206e486-a20a-48cc-9917-560daf72f366
+E: ID_FS_UUID_SUB=570a7e1c-2b17-4bb9-a8fe-20010ae43529
+E: ID_FS_UUID_SUB_ENC=570a7e1c-2b17-4bb9-a8fe-20010ae43529
+E: ID_FS_BLOCKSIZE=4096
+E: ID_FS_LASTBLOCK=6836191232
+E: ID_FS_SIZE=28001039286272
+E: ID_FS_TYPE=btrfs
+E: ID_FS_USAGE=filesystem
+E: ID_BTRFS_READY=1
+E: DEVLINKS=/dev/disk/by-diskseq/16 /dev/disk/by-id/ata-ST14000NM0018-2H4101_ZHZ32QGJ /dev/disk/by-path/pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:1 /dev/disk/by-id/usb-PRO-T2_AVOLUSION_DD564198838F1-0:1 /dev/disk/by-uuid/4206e486-a20a-48cc-9917-560daf72f366 /dev/disk/by-path/pci-0000:00:14.0-usbv3-0:1:1.0-scsi-0:0:0:1 /dev/disk/by-id/wwn-0x5000c500b6319f42 /dev/disk/by-label/fearless
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sdg ---
+P: /devices/pci0000:00/0000:00:14.0/usb2/2-9/2-9.1/2-9.1.3/2-9.1.3:1.0/host9/target9:0:0/9:0:0:0/block/sdg
+M: sdg
+U: block
+T: disk
+D: b 8:96
+N: sdg
+L: 0
+S: disk/by-path/pci-0000:00:14.0-usb-0:9.1.3:1.0-scsi-0:0:0:0
+S: disk/by-id/usb-Seagate_Backup+_Hub_BK_NA9RQVRV-0:0
+S: disk/by-path/pci-0000:00:14.0-usbv3-0:9.1.3:1.0-scsi-0:0:0:0
+S: disk/by-diskseq/17
+Q: 17
+E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-9/2-9.1/2-9.1.3/2-9.1.3:1.0/host9/target9:0:0/9:0:0:0/block/sdg
+E: DEVNAME=/dev/sdg
+E: DEVTYPE=disk
+E: DISKSEQ=17
+E: MAJOR=8
+E: MINOR=96
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=4949169
+E: ID_BUS=usb
+E: ID_MODEL=Backup+_Hub_BK
+E: ID_MODEL_ENC=Backup+\x20Hub\x20BK\x20\x20
+E: ID_MODEL_ID=ab38
+E: ID_SERIAL=Seagate_Backup+_Hub_BK_NA9RQVRV-0:0
+E: ID_SERIAL_SHORT=NA9RQVRV
+E: ID_VENDOR=Seagate
+E: ID_VENDOR_ENC=Seagate\x20
+E: ID_VENDOR_ID=0bc2
+E: ID_REVISION=D785
+E: ID_TYPE=disk
+E: ID_INSTANCE=0:0
+E: ID_USB_MODEL=Backup+_Hub_BK
+E: ID_USB_MODEL_ENC=Backup+\x20Hub\x20BK\x20\x20
+E: ID_USB_MODEL_ID=ab38
+E: ID_USB_SERIAL=Seagate_Backup+_Hub_BK_NA9RQVRV-0:0
+E: ID_USB_SERIAL_SHORT=NA9RQVRV
+E: ID_USB_VENDOR=Seagate
+E: ID_USB_VENDOR_ENC=Seagate\x20
+E: ID_USB_VENDOR_ID=0bc2
+E: ID_USB_REVISION=D785
+E: ID_USB_TYPE=disk
+E: ID_USB_INSTANCE=0:0
+E: ID_USB_INTERFACES=:080650:080662:
+E: ID_USB_INTERFACE_NUM=00
+E: ID_USB_DRIVER=uas
+E: ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv3-0:9.1.3:1.0-scsi-0:0:0:0
+E: ID_PATH=pci-0000:00:14.0-usb-0:9.1.3:1.0-scsi-0:0:0:0
+E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_9_1_3_1_0-scsi-0_0_0_0
+E: ID_PART_TABLE_UUID=8d00f108-abc1-4c72-ab0e-7f03722bf583
+E: ID_PART_TABLE_TYPE=gpt
+E: DEVLINKS=/dev/disk/by-path/pci-0000:00:14.0-usb-0:9.1.3:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-Seagate_Backup+_Hub_BK_NA9RQVRV-0:0 /dev/disk/by-path/pci-0000:00:14.0-usbv3-0:9.1.3:1.0-scsi-0:0:0:0 /dev/disk/by-diskseq/17
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sdh ---
+P: /devices/pci0000:00/0000:00:14.0/usb2/2-9/2-9.3/2-9.3.1/2-9.3.1:1.0/host11/target11:0:0/11:0:0:0/block/sdh
+M: sdh
+U: block
+T: disk
+D: b 8:112
+N: sdh
+L: 0
+S: disk/by-path/pci-0000:00:14.0-usbv3-0:9.3.1:1.0-scsi-0:0:0:0
+S: disk/by-diskseq/18
+S: disk/by-id/usb-Seagate_Backup+_Hub_BK_NA9QYDB4-0:0
+S: disk/by-path/pci-0000:00:14.0-usb-0:9.3.1:1.0-scsi-0:0:0:0
+Q: 18
+E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-9/2-9.3/2-9.3.1/2-9.3.1:1.0/host11/target11:0:0/11:0:0:0/block/sdh
+E: DEVNAME=/dev/sdh
+E: DEVTYPE=disk
+E: DISKSEQ=18
+E: MAJOR=8
+E: MINOR=112
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=5408293
+E: ID_BUS=usb
+E: ID_MODEL=Backup+_Hub_BK
+E: ID_MODEL_ENC=Backup+\x20Hub\x20BK\x20\x20
+E: ID_MODEL_ID=ab38
+E: ID_SERIAL=Seagate_Backup+_Hub_BK_NA9QYDB4-0:0
+E: ID_SERIAL_SHORT=NA9QYDB4
+E: ID_VENDOR=Seagate
+E: ID_VENDOR_ENC=Seagate\x20
+E: ID_VENDOR_ID=0bc2
+E: ID_REVISION=D781
+E: ID_TYPE=disk
+E: ID_INSTANCE=0:0
+E: ID_USB_MODEL=Backup+_Hub_BK
+E: ID_USB_MODEL_ENC=Backup+\x20Hub\x20BK\x20\x20
+E: ID_USB_MODEL_ID=ab38
+E: ID_USB_SERIAL=Seagate_Backup+_Hub_BK_NA9QYDB4-0:0
+E: ID_USB_SERIAL_SHORT=NA9QYDB4
+E: ID_USB_VENDOR=Seagate
+E: ID_USB_VENDOR_ENC=Seagate\x20
+E: ID_USB_VENDOR_ID=0bc2
+E: ID_USB_REVISION=D781
+E: ID_USB_TYPE=disk
+E: ID_USB_INSTANCE=0:0
+E: ID_USB_INTERFACES=:080650:080662:
+E: ID_USB_INTERFACE_NUM=00
+E: ID_USB_DRIVER=uas
+E: ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv3-0:9.3.1:1.0-scsi-0:0:0:0
+E: ID_PATH=pci-0000:00:14.0-usb-0:9.3.1:1.0-scsi-0:0:0:0
+E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_9_3_1_1_0-scsi-0_0_0_0
+E: ID_PART_TABLE_UUID=94aa4238-c167-4060-a06e-030f7b1a5bbf
+E: ID_PART_TABLE_TYPE=gpt
+E: DEVLINKS=/dev/disk/by-path/pci-0000:00:14.0-usbv3-0:9.3.1:1.0-scsi-0:0:0:0 /dev/disk/by-diskseq/18 /dev/disk/by-id/usb-Seagate_Backup+_Hub_BK_NA9QYDB4-0:0 /dev/disk/by-path/pci-0000:00:14.0-usb-0:9.3.1:1.0-scsi-0:0:0:0
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+--- /dev/sdi ---
+P: /devices/pci0000:00/0000:00:14.0/usb2/2-9/2-9.4/2-9.4:1.0/host10/target10:0:0/10:0:0:0/block/sdi
+M: sdi
+U: block
+T: disk
+D: b 8:128
+N: sdi
+L: 0
+S: disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_1EGE5V8Z
+S: disk/by-id/usb-WD_easystore_25FB_314547453556385A-0:0
+S: disk/by-path/pci-0000:00:14.0-usbv3-0:9.4:1.0-scsi-0:0:0:0
+S: disk/by-diskseq/19
+S: disk/by-id/wwn-0x5000cca27ec5fec6
+S: disk/by-path/pci-0000:00:14.0-usb-0:9.4:1.0-scsi-0:0:0:0
+Q: 19
+E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-9/2-9.4/2-9.4:1.0/host10/target10:0:0/10:0:0:0/block/sdi
+E: DEVNAME=/dev/sdi
+E: DEVTYPE=disk
+E: DISKSEQ=19
+E: MAJOR=8
+E: MINOR=128
+E: SUBSYSTEM=block
+E: USEC_INITIALIZED=6372839
+E: ID_ATA=1
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=WDC_WD100EMAZ-00WJTA0
+E: ID_MODEL_ENC=WDC\x20WD100EMAZ-00WJTA0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+E: ID_REVISION=83.H0A83
+E: ID_SERIAL=WDC_WD100EMAZ-00WJTA0_1EGE5V8Z
+E: ID_SERIAL_SHORT=1EGE5V8Z
+E: ID_ATA_WRITE_CACHE=1
+E: ID_ATA_WRITE_CACHE_ENABLED=1
+E: ID_ATA_FEATURE_SET_HPA=1
+E: ID_ATA_FEATURE_SET_HPA_ENABLED=1
+E: ID_ATA_FEATURE_SET_PM=1
+E: ID_ATA_FEATURE_SET_PM_ENABLED=1
+E: ID_ATA_FEATURE_SET_SECURITY=1
+E: ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+E: ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=66656
+E: ID_ATA_FEATURE_SET_SMART=1
+E: ID_ATA_FEATURE_SET_SMART_ENABLED=1
+E: ID_ATA_FEATURE_SET_PUIS=1
+E: ID_ATA_FEATURE_SET_PUIS_ENABLED=0
+E: ID_ATA_FEATURE_SET_APM=1
+E: ID_ATA_FEATURE_SET_APM_ENABLED=1
+E: ID_ATA_FEATURE_SET_APM_CURRENT_VALUE=164
+E: ID_ATA_DOWNLOAD_MICROCODE=1
+E: ID_ATA_SATA=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN2=1
+E: ID_ATA_SATA_SIGNAL_RATE_GEN1=1
+E: ID_ATA_ROTATION_RATE_RPM=5400
+E: ID_WWN=0x5000cca27ec5fec6
+E: ID_WWN_WITH_EXTENSION=0x5000cca27ec5fec6
+E: ID_ATA_PERIPHERAL_DEVICE_TYPE=0
+E: ID_USB_MODEL=easystore_25FB
+E: ID_USB_MODEL_ENC=easystore\x2025FB\x20\x20
+E: ID_USB_MODEL_ID=25fb
+E: ID_USB_SERIAL=WD_easystore_25FB_314547453556385A-0:0
+E: ID_USB_SERIAL_SHORT=314547453556385A
+E: ID_USB_VENDOR=WD
+E: ID_USB_VENDOR_ENC=WD\x20\x20\x20\x20\x20\x20
+E: ID_USB_VENDOR_ID=1058
+E: ID_USB_REVISION=3007
+E: ID_USB_TYPE=disk
+E: ID_USB_INSTANCE=0:0
+E: ID_USB_INTERFACES=:080650:
+E: ID_USB_INTERFACE_NUM=00
+E: ID_USB_DRIVER=usb-storage
+E: ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv3-0:9.4:1.0-scsi-0:0:0:0
+E: ID_PATH=pci-0000:00:14.0-usb-0:9.4:1.0-scsi-0:0:0:0
+E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_9_4_1_0-scsi-0_0_0_0
+E: ID_PART_TABLE_UUID=0fb543bf-bac4-40f0-aafa-443bfc45ed38
+E: ID_PART_TABLE_TYPE=gpt
+E: DEVLINKS=/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_1EGE5V8Z /dev/disk/by-id/usb-WD_easystore_25FB_314547453556385A-0:0 /dev/disk/by-path/pci-0000:00:14.0-usbv3-0:9.4:1.0-scsi-0:0:0:0 /dev/disk/by-diskseq/19 /dev/disk/by-id/wwn-0x5000cca27ec5fec6 /dev/disk/by-path/pci-0000:00:14.0-usb-0:9.4:1.0-scsi-0:0:0:0
+E: TAGS=:systemd:
+E: CURRENT_TAGS=:systemd:
+
+
+===== btrfs filesystem show =====
+Label: none  uuid: ddebca57-8bb6-4f42-ad47-50717a12b35f
+	Total devices 2 FS bytes used 2.12TiB
+	devid    1 size 3.64TiB used 2.34TiB path /dev/sdc2
+	devid    2 size 3.64TiB used 2.34TiB path /dev/sdd2
+
+Label: 'grackle'  uuid: f573e10c-b96d-4a9d-b6ed-12fe8d31ba73
+	Total devices 2 FS bytes used 3.49TiB
+	devid    1 size 3.64TiB used 3.61TiB path /dev/sda
+	devid    2 size 3.64TiB used 3.61TiB path /dev/sdb
+
+Label: 'fearless'  uuid: 4206e486-a20a-48cc-9917-560daf72f366
+	Total devices 2 FS bytes used 12.29TiB
+	devid    1 size 12.73TiB used 12.63TiB path /dev/sde
+	devid    2 size 12.73TiB used 12.63TiB path /dev/sdf
+
+
+===== btrfs filesystem df (per mount) =====
+--- / ---
+Data, RAID1: total=2.33TiB, used=2.11TiB
+System, RAID1: total=32.00MiB, used=352.00KiB
+Metadata, RAID1: total=9.00GiB, used=7.62GiB
+GlobalReserve, single: total=512.00MiB, used=0.00B
+
+--- ├─/mnt/pubs/Comics/Publishers/DC ---
+
+--- ├─/home ---
+
+--- ├─/mnt/DC ---
+
+--- ├─/mnt/grackle ---
+
+--- ├─/mnt/fearless ---
+
+--- ├─/mnt/longbox ---
+
+--- └─/mnt/shortbox ---
+
+===== mdadm =====
+Personalities : [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] 
+unused devices: <none>
+
+===== findmnt =====
+TARGET                                                                                             SOURCE                                      FSTYPE          OPTIONS
+/                                                                                                  /dev/sdc2[/@]                               btrfs           rw,relatime,space_cache=v2,subvolid=256,subvol=/@
+├─/sys                                                                                             sysfs                                       sysfs           rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/firmware/efi/efivars                                                                      efivarfs                                    efivarfs        rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/kernel/security                                                                           securityfs                                  securityfs      rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/fs/cgroup                                                                                 cgroup2                                     cgroup2         rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot
+│ ├─/sys/fs/pstore                                                                                 pstore                                      pstore          rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/fs/bpf                                                                                    bpf                                         bpf             rw,nosuid,nodev,noexec,relatime,mode=700
+│ ├─/sys/kernel/debug                                                                              debugfs                                     debugfs         rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/kernel/tracing                                                                            tracefs                                     tracefs         rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/fs/fuse/connections                                                                       fusectl                                     fusectl         rw,nosuid,nodev,noexec,relatime
+│ └─/sys/kernel/config                                                                             configfs                                    configfs        rw,nosuid,nodev,noexec,relatime
+├─/proc                                                                                            proc                                        proc            rw,nosuid,nodev,noexec,relatime
+│ ├─/proc/sys/fs/binfmt_misc                                                                       systemd-1                                   autofs          rw,relatime,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=20096
+│ │ └─/proc/sys/fs/binfmt_misc                                                                     binfmt_misc                                 binfmt_misc     rw,nosuid,nodev,noexec,relatime
+│ └─/proc/fs/nfsd                                                                                  nfsd                                        nfsd            rw,relatime
+├─/dev                                                                                             udev                                        devtmpfs        rw,nosuid,relatime,size=32745440k,nr_inodes=8186360,mode=755,inode64
+│ ├─/dev/pts                                                                                       devpts                                      devpts          rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000
+│ ├─/dev/shm                                                                                       tmpfs                                       tmpfs           rw,nosuid,nodev,inode64
+│ ├─/dev/mqueue                                                                                    mqueue                                      mqueue          rw,nosuid,nodev,noexec,relatime
+│ └─/dev/hugepages                                                                                 hugetlbfs                                   hugetlbfs       rw,nosuid,nodev,relatime,pagesize=2M
+├─/run                                                                                             tmpfs                                       tmpfs           rw,nosuid,nodev,noexec,relatime,size=6557632k,mode=755,inode64
+│ ├─/run/lock                                                                                      tmpfs                                       tmpfs           rw,nosuid,nodev,noexec,relatime,size=5120k,inode64
+│ ├─/run/docker/netns/313059613b88                                                                 nsfs[net:[4026533227]]                      nsfs            rw
+│ ├─/run/rpc_pipefs                                                                                sunrpc                                      rpc_pipefs      rw,relatime
+│ └─/run/user/1000                                                                                 tmpfs                                       tmpfs           rw,nosuid,nodev,relatime,size=6557632k,nr_inodes=1639408,mode=700,uid=1000,gid=1000,inode64
+│   ├─/run/user/1000/doc                                                                           portal                                      fuse.portal     rw,nosuid,nodev,relatime,user_id=1000,group_id=1000
+│   └─/run/user/1000/gvfs                                                                          gvfsd-fuse                                  fuse.gvfsd-fuse rw,nosuid,nodev,relatime,user_id=1000,group_id=1000
+├─/media/oldboot_root                                                                              /dev/nvme0n1p2                              ext4            rw,relatime
+├─/boot/efi                                                                                        /dev/nvme0n1p1                              vfat            rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro
+├─/mnt/arcs                                                                                        /dev/sdh1                                   ext4            rw,noatime,stripe=8191
+├─/mnt/pubs                                                                                        /dev/sdi1                                   ext4            rw,noatime
+│ └─/mnt/pubs/Comics/Publishers/DC                                                                 /dev/sde[/comics/DC]                        btrfs           rw,relatime,space_cache=v2,subvolid=257,subvol=/comics
+├─/mnt/data                                                                                        /dev/sdg1                                   ext4            rw,noatime
+├─/mnt/Marvel                                                                                      /dev/sdi1[/Comics/Publishers/Marvel]        ext4            rw,noatime
+├─/home                                                                                            /dev/sdc2[/@home]                           btrfs           rw,relatime,space_cache=v2,subvolid=257,subvol=/@home
+│ └─/home/rmleonard_old                                                                            /dev/nvme1n1p1                              ext4            rw,relatime
+├─/var/lib/docker/overlay2/872989929de8b0a6226952c113119466423aa9f26cd9e2895a24070390b114d7/merged overlay                                     overlay         rw,relatime,lowerdir=/var/lib/docker/overlay2/l/UQKRCONMGXPQH6ZP5UJWW7UGX7:/var/lib/docker/overlay2/l/YELX7KAK2KOQ6UAQTKMNQ75S5Z:/var/lib/docker/overlay2/l/YQYFKPUBNQLO7LMQAP4COKQN4E:/var/lib/docker/overlay2/l/5UJCPACNELUTVIY25CJ7TO7PDK:/var/lib/docker/overlay2/l/YB7JLPP5ED55MVK65TEAFIIELL:/var/lib/docker/overlay2/l/EDGGAT7NZAFB6VO6L75SEZQNQU:/var/lib/docker/overlay2/l/CAJNYSXVZWZWCOYOG2BGKHYLT5:/var/lib/docker/overlay2/l/A4YLY3EKVP2HHS6XDHEZKEU5SK:/var/lib/docker/overlay2/l/I2WR3TVWCPS4VCUNTNA4USOFOE:/var/lib/docker/overlay2/l/6DFNSAYAUSIHIWH2J5JPXRS3WY:/var/lib/docker/overlay2/l/47U4TF3I2IRL5UNCDCTBCSEUW5:/var/lib/docker/overlay2/l/YC77E4OT6L6MDWBSA6VL55VA66,upperdir=/var/lib/docker/overlay2/872989929de8b0a6226952c113119466423aa9f26cd9e2895a24070390b114d7/diff,workdir=/var/lib/docker/overlay2/872989929de8b0a6226952c113119466423aa9f26cd9e2895a24070390b114d7/work,nouserxattr
+├─/snap/core/17247                                                                                 /dev/loop3                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+├─/snap/snapd/25202                                                                                /dev/loop7                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+├─/snap/core24/1237                                                                                /dev/loop4                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+├─/snap/certbot/5234                                                                               /dev/loop1                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+├─/snap/core/17212                                                                                 /dev/loop2                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+├─/snap/certbot/5214                                                                               /dev/loop5                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+├─/mnt/DC                                                                                          /dev/sde[/comics/DC]                        btrfs           rw,relatime,space_cache=v2,subvolid=257,subvol=/comics
+├─/mnt/grackle                                                                                     /dev/sda                                    btrfs           rw,relatime,space_cache=v2,subvolid=5,subvol=/
+├─/mnt/fearless                                                                                    /dev/sde                                    btrfs           rw,relatime,space_cache=v2,subvolid=5,subvol=/
+├─/mnt/longbox                                                                                     /dev/sde[/From_Longbox]                     btrfs           rw,relatime,space_cache=v2,subvolid=5,subvol=/
+├─/mnt/shortbox                                                                                    /dev/sde[/From_Longbox/Mylar-Shortbox-ROOT] btrfs           rw,relatime,space_cache=v2,subvolid=5,subvol=/
+├─/snap/snapd/25577                                                                                /dev/loop0                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+├─/root/.cache/doc                                                                                 portal                                      fuse.portal     rw,nosuid,nodev,relatime,user_id=0,group_id=0
+├─/root/.gvfs                                                                                      gvfsd-fuse                                  fuse.gvfsd-fuse rw,nosuid,nodev,relatime,user_id=0,group_id=0
+└─/snap/core24/1225                                                                                /dev/loop6                                  squashfs        ro,nodev,relatime,errors=continue,threads=single
+
+===== mount =====
+sysfs                                   on  /sys                                                                                              type  sysfs            (rw,nosuid,nodev,noexec,relatime)
+proc                                    on  /proc                                                                                             type  proc             (rw,nosuid,nodev,noexec,relatime)
+udev                                    on  /dev                                                                                              type  devtmpfs         (rw,nosuid,relatime,size=32745440k,nr_inodes=8186360,mode=755,inode64)
+devpts                                  on  /dev/pts                                                                                          type  devpts           (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs                                   on  /run                                                                                              type  tmpfs            (rw,nosuid,nodev,noexec,relatime,size=6557632k,mode=755,inode64)
+efivarfs                                on  /sys/firmware/efi/efivars                                                                         type  efivarfs         (rw,nosuid,nodev,noexec,relatime)
+/dev/sdc2                               on  /                                                                                                 type  btrfs            (rw,relatime,space_cache=v2,subvolid=256,subvol=/@)
+securityfs                              on  /sys/kernel/security                                                                              type  securityfs       (rw,nosuid,nodev,noexec,relatime)
+tmpfs                                   on  /dev/shm                                                                                          type  tmpfs            (rw,nosuid,nodev,inode64)
+tmpfs                                   on  /run/lock                                                                                         type  tmpfs            (rw,nosuid,nodev,noexec,relatime,size=5120k,inode64)
+cgroup2                                 on  /sys/fs/cgroup                                                                                    type  cgroup2          (rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)
+pstore                                  on  /sys/fs/pstore                                                                                    type  pstore           (rw,nosuid,nodev,noexec,relatime)
+bpf                                     on  /sys/fs/bpf                                                                                       type  bpf              (rw,nosuid,nodev,noexec,relatime,mode=700)
+systemd-1                               on  /proc/sys/fs/binfmt_misc                                                                          type  autofs           (rw,relatime,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=20096)
+debugfs                                 on  /sys/kernel/debug                                                                                 type  debugfs          (rw,nosuid,nodev,noexec,relatime)
+tracefs                                 on  /sys/kernel/tracing                                                                               type  tracefs          (rw,nosuid,nodev,noexec,relatime)
+mqueue                                  on  /dev/mqueue                                                                                       type  mqueue           (rw,nosuid,nodev,noexec,relatime)
+fusectl                                 on  /sys/fs/fuse/connections                                                                          type  fusectl          (rw,nosuid,nodev,noexec,relatime)
+configfs                                on  /sys/kernel/config                                                                                type  configfs         (rw,nosuid,nodev,noexec,relatime)
+hugetlbfs                               on  /dev/hugepages                                                                                    type  hugetlbfs        (rw,nosuid,nodev,relatime,pagesize=2M)
+nfsd                                    on  /proc/fs/nfsd                                                                                     type  nfsd             (rw,relatime)
+/dev/nvme0n1p2                          on  /media/oldboot_root                                                                               type  ext4             (rw,relatime)
+/dev/nvme0n1p1                          on  /boot/efi                                                                                         type  vfat             (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+/dev/sdh1                               on  /mnt/arcs                                                                                         type  ext4             (rw,noatime,stripe=8191)
+/dev/sdi1                               on  /mnt/pubs                                                                                         type  ext4             (rw,noatime)
+/dev/sdg1                               on  /mnt/data                                                                                         type  ext4             (rw,noatime)
+/dev/sdi1                               on  /mnt/Marvel                                                                                       type  ext4             (rw,noatime)
+/dev/sdc2                               on  /home                                                                                             type  btrfs            (rw,relatime,space_cache=v2,subvolid=257,subvol=/@home)
+/dev/nvme1n1p1                          on  /home/rmleonard_old                                                                               type  ext4             (rw,relatime)
+/var/lib/snapd/snaps/core_17247.snap    on  /snap/core/17247                                                                                  type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+/var/lib/snapd/snaps/snapd_25202.snap   on  /snap/snapd/25202                                                                                 type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+/var/lib/snapd/snaps/core_17212.snap    on  /snap/core/17212                                                                                  type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+/dev/sda                                on  /mnt/grackle                                                                                      type  btrfs            (rw,relatime,space_cache=v2,subvolid=5,subvol=/)
+/dev/sde                                on  /mnt/fearless                                                                                     type  btrfs            (rw,relatime,space_cache=v2,subvolid=5,subvol=/)
+/dev/sde                                on  /mnt/DC                                                                                           type  btrfs            (rw,relatime,space_cache=v2,subvolid=257,subvol=/comics)
+/dev/sde                                on  /mnt/longbox                                                                                      type  btrfs            (rw,relatime,space_cache=v2,subvolid=5,subvol=/)
+/dev/sde                                on  /mnt/pubs/Comics/Publishers/DC                                                                    type  btrfs            (rw,relatime,space_cache=v2,subvolid=257,subvol=/comics)
+/dev/sde                                on  /mnt/shortbox                                                                                     type  btrfs            (rw,relatime,space_cache=v2,subvolid=5,subvol=/)
+binfmt_misc                             on  /proc/sys/fs/binfmt_misc                                                                          type  binfmt_misc      (rw,nosuid,nodev,noexec,relatime)
+sunrpc                                  on  /run/rpc_pipefs                                                                                   type  rpc_pipefs       (rw,relatime)
+tmpfs                                   on  /run/user/1000                                                                                    type  tmpfs            (rw,nosuid,nodev,relatime,size=6557632k,nr_inodes=1639408,mode=700,uid=1000,gid=1000,inode64)
+gvfsd-fuse                              on  /run/user/1000/gvfs                                                                               type  fuse.gvfsd-fuse  (rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
+portal                                  on  /run/user/1000/doc                                                                                type  fuse.portal      (rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
+portal                                  on  /root/.cache/doc                                                                                  type  fuse.portal      (rw,nosuid,nodev,relatime,user_id=0,group_id=0)
+gvfsd-fuse                              on  /root/.gvfs                                                                                       type  fuse.gvfsd-fuse  (rw,nosuid,nodev,relatime,user_id=0,group_id=0)
+/var/lib/snapd/snaps/snapd_25577.snap   on  /snap/snapd/25577                                                                                 type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+/var/lib/snapd/snaps/core24_1225.snap   on  /snap/core24/1225                                                                                 type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+overlay                                 on  /var/lib/docker/overlay2/872989929de8b0a6226952c113119466423aa9f26cd9e2895a24070390b114d7/merged  type  overlay          (rw,relatime,lowerdir=/var/lib/docker/overlay2/l/UQKRCONMGXPQH6ZP5UJWW7UGX7:/var/lib/docker/overlay2/l/YELX7KAK2KOQ6UAQTKMNQ75S5Z:/var/lib/docker/overlay2/l/YQYFKPUBNQLO7LMQAP4COKQN4E:/var/lib/docker/overlay2/l/5UJCPACNELUTVIY25CJ7TO7PDK:/var/lib/docker/overlay2/l/YB7JLPP5ED55MVK65TEAFIIELL:/var/lib/docker/overlay2/l/EDGGAT7NZAFB6VO6L75SEZQNQU:/var/lib/docker/overlay2/l/CAJNYSXVZWZWCOYOG2BGKHYLT5:/var/lib/docker/overlay2/l/A4YLY3EKVP2HHS6XDHEZKEU5SK:/var/lib/docker/overlay2/l/I2WR3TVWCPS4VCUNTNA4USOFOE:/var/lib/docker/overlay2/l/6DFNSAYAUSIHIWH2J5JPXRS3WY:/var/lib/docker/overlay2/l/47U4TF3I2IRL5UNCDCTBCSEUW5:/var/lib/docker/overlay2/l/YC77E4OT6L6MDWBSA6VL55VA66,upperdir=/var/lib/docker/overlay2/872989929de8b0a6226952c113119466423aa9f26cd9e2895a24070390b114d7/diff,workdir=/var/lib/docker/overlay2/872989929de8b0a6226952c113119466423aa9f26cd9e2895a24070390b114d7/work,nouserxattr)
+nsfs                                    on  /run/docker/netns/313059613b88                                                                    type  nsfs             (rw)
+/var/lib/snapd/snaps/certbot_5214.snap  on  /snap/certbot/5214                                                                                type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+/var/lib/snapd/snaps/certbot_5234.snap  on  /snap/certbot/5234                                                                                type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+/var/lib/snapd/snaps/core24_1237.snap   on  /snap/core24/1237                                                                                 type  squashfs         (ro,nodev,relatime,errors=continue,threads=single,x-gdu.hide,x-gvfs-hide)
+
+===== df -hT =====
+Filesystem     Type      Size  Used Avail Use% Mounted on
+tmpfs          tmpfs     6.3G   26M  6.3G   1% /run
+efivarfs       efivarfs  192K  160K   28K  86% /sys/firmware/efi/efivars
+/dev/sdc2      btrfs     3.7T  2.2T  1.6T  59% /
+tmpfs          tmpfs      32G   73M   32G   1% /dev/shm
+tmpfs          tmpfs     5.0M   12K  5.0M   1% /run/lock
+/dev/nvme0n1p2 ext4      916G  745G  124G  86% /media/oldboot_root
+/dev/nvme0n1p1 vfat      511M  6.2M  505M   2% /boot/efi
+/dev/sdh1      ext4      9.1T  8.2T  401G  96% /mnt/arcs
+/dev/sdi1      ext4      9.1T  8.2T  407G  96% /mnt/pubs
+/dev/sdg1      ext4      7.3T  6.7T  238G  97% /mnt/data
+/dev/sdc2      btrfs     3.7T  2.2T  1.6T  59% /home
+/dev/nvme1n1p1 ext4      916G  679G  191G  79% /home/rmleonard_old
+/dev/sda       btrfs     3.7T  3.5T  147G  97% /mnt/grackle
+/dev/sde       btrfs      13T   13T  455G  97% /mnt/fearless
+/dev/sde       btrfs      13T   13T  455G  97% /mnt/DC
+tmpfs          tmpfs     6.3G  2.7M  6.3G   1% /run/user/1000
+overlay        overlay   3.7T  2.2T  1.6T  59% /var/lib/docker/overlay2/872989929de8b0a6226952c113119466423aa9f26cd9e2895a24070390b114d7/merged
+
+===== iostat (optional live data) =====
+Linux 6.8.0-84-generic (reality) 	12/13/2025 	_x86_64_	(20 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           1.95    0.00    0.26    0.86    0.00   96.93
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+loop0            0.00      0.05     0.00   0.00    2.51    36.71    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop1            0.00      0.03     0.00   0.00    0.68     8.28    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop2            0.00      0.00     0.00   0.00    0.48     2.76    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop3            0.00      0.00     0.00   0.00    0.64     2.74    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop4            0.01      0.13     0.00   0.00    1.14     9.16    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop5            0.00      0.02     0.00   0.00    0.46     8.59    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop6            0.00      0.02     0.00   0.00    4.05    19.12    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop7            0.00      0.04     0.00   0.00    2.70    40.46    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop8            0.00      0.01     0.00   0.00    1.63     9.32    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop9            0.00      0.00     0.00   0.00    0.10     1.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+nvme0n1          0.01      0.06     0.00  11.33    1.93     4.76    0.00      0.00     0.00  56.77  165.11     9.13    0.02     26.92     0.00   0.00    0.89  1098.42    0.00   77.26    0.00   0.01
+nvme1n1          5.79     25.74     0.65  10.04    0.09     4.45    0.07      2.53     0.53  88.45    1.94    36.74    0.02     36.49     0.00   0.00    0.99  2386.02    0.00    1.14    0.00   0.05
+sda              1.41    713.96     0.02   1.55   30.23   506.92    0.70    313.57     0.12  14.85   12.00   447.18    0.00      0.00     0.00   0.00    0.00     0.00    0.01   60.02    0.05   0.93
+sdb              1.13    551.64     0.02   1.78   30.09   486.40    0.70    313.57     0.12  14.78   12.59   446.79    0.00      0.00     0.00   0.00    0.00     0.00    0.01   62.05    0.04   0.81
+sdc              0.94     42.47     0.04   4.40  125.81    45.16   19.17    971.59     8.12  29.76    8.78    50.68    0.00      0.00     0.00   0.00    0.00     0.00    2.33   29.72    0.36   8.17
+sdd              1.01     91.48     0.09   7.78  107.97    90.47   19.22    971.59     8.08  29.59   13.35    50.56    0.00      0.00     0.00   0.00    0.00     0.00    2.33   29.09    0.43   8.64
+sde              0.43    174.79     0.01   1.82   97.61   408.77    0.02      2.88     0.11  85.66  194.66   150.27    0.00      0.00     0.00   0.00    0.00     0.00    0.00   64.12    0.05   0.37
+sdf              0.68    286.25     0.01   1.12   72.38   423.65    0.02      2.88     0.11  85.65  289.07   150.13    0.00      0.00     0.00   0.00    0.00     0.00    0.00   85.51    0.05   0.59
+sdg              0.95    147.67     0.01   1.54    9.73   155.75    0.70    300.82     0.10  12.53   34.15   431.56    0.00      0.00     0.00   0.00    0.00     0.00    0.01  168.13    0.03   0.62
+sdh              0.55     83.49     0.03   4.93   62.22   150.45    0.25    112.60     0.02   7.94   32.66   446.82    0.00      0.00     0.00   0.00    0.00     0.00    0.00  280.14    0.04   0.24
+sdi              0.22     63.03     0.01   5.86    6.64   281.96    0.00      0.51     0.00  35.05    5.51   526.25    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.12
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.15    0.00    0.05    0.00    0.00   99.80
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.15    0.00    0.05    0.00    0.00   99.80
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+
+
+
