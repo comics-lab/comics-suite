@@ -1,3 +1,4 @@
+```mermaid
 graph TD
 
     %% Btrfs RAID1: fearless (14TB mirror over USB DAS)
