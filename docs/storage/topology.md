@@ -1,4 +1,5 @@
-```graph TD
+```mermaid
+graph TD
     BEAST["🖥️ The Beast (Workstation / Lab Hub)"]
 
     subgraph MB["Motherboard"]
