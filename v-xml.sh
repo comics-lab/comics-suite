@@ -6,7 +6,7 @@ if [ -z "$files" ]; then
   exit 0
 fi
 for f in $files; do
-  if ! xmllint --xpath "boolean(//*[local-name()='MetadataVersion'])" "$f" 2>/dev/null | grep '1'; then
+  if ! xmllint --xpath "boolean(//*[local-name()='MetadataVersion'])" "$f" 2>/dev/null | grep 'true'; then
     echo "MetadataVersion missing in $f"
     xmllint "$f" # Show the XML file content for debugging
     exit 1
