@@ -1,6 +1,6 @@
 # Documentation Index — comics-lab
 
-This index centralizes conversation logs, bookmarks, and organizational action logs found across the workspace. It points to the canonical location of each artifact and contains a short summary to help with discoverability.
+This index lists local conversation logs, bookmarks, and action logs across the workspace. It points to the canonical location of each artifact and contains a short summary to help with discoverability. Logs remain in their originating repos.
 
 Files discovered and short summaries
 
@@ -24,7 +24,7 @@ Files discovered and short summaries
   - Path: comics-suite/docs/Action-Log.md
   - Summary: Chronological action log for comics-suite meta-operations and snapshots.
 
-Copies created in `docs/conversations/` (canonical copies for discoverability):
+Legacy copies in `docs/conversations/` (pre-local-only policy):
 
 - `docs/conversations/comic-file-organizer_FULL_CONVERSATION.md` — full conversation transcript (copy of `comic-file-organizer/CONVERSATION.md`).
 - `docs/conversations/comic-file-organizer_BOOKMARKS.md` — copy of `comic-file-organizer/BOOKMARKS.md`.
@@ -44,7 +44,5 @@ Other artifacts (found during scan)
 Goals and next recommended steps
 
 1. Use this DOCUMENTATION_INDEX.md as the single entry-point to find conversation logs and bookmarks.
-2. If you prefer the conversation files moved into `docs/conversations/` rather than left in-place, I can move them and transform the originals into small pointer files.
-3. After you confirm, I'll add short README files inside each package (e.g., `comic-file-organizer/README.md`) that point to the index and highlight key commands.
-
-If you'd like me to move files into `docs/conversations/` now, say so and I will proceed (I can either copy or relocate the originals; relocation will modify the repo tree).
+2. Keep logs in their originating repos; add or update entries here for discoverability.
+3. Add short README pointers inside each package (e.g., `comic-file-organizer/README.md`) that reference the local logs.

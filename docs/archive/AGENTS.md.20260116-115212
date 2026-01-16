@@ -1,0 +1,119 @@
+# AGENTS.md - comics-lab Master Directives
+
+This is the master, org-wide agent profile for the comics-lab workspace. It combines the core guidance that applies across the entire project and delegates to specialized profiles when needed.
+
+## 0. Master Directive: Logging and Conversation Policy
+
+Log significant decisions and transcripts so they remain discoverable and reproducible.
+
+Required locations and steps:
+
+1. Create the conversation file in the package first (example: `your-package/CONVERSATION.md`).
+2. Copy it to the central docs location: `docs/conversations/your-package_FULL_CONVERSATION.md`.
+3. Update `docs/DOCUMENTATION_INDEX.md` to list both locations with a short summary.
+4. Add a pointer in the package `README.md` to `../docs/DOCUMENTATION_INDEX.md`.
+
+Copy vs move policy (default):
+- Keep the original conversation file in its package.
+- Create a full copy in `docs/conversations/`.
+- Add pointers in package READMEs to the central docs.
+
+Naming conventions:
+- Package conversations: `your-package/CONVERSATION.md`
+- Central copies: `docs/conversations/your-package_FULL_CONVERSATION.md`
+- Bookmarks: `docs/conversations/your-package_BOOKMARKS.md`
+- Action logs: `docs/conversations/your-package_Action-Log.md`
+
+Scope guidance:
+- Preserve significant development conversations, architectural decisions, major refactors, and integration notes.
+- Include test results and verification steps when relevant.
+- Archive old conversations in `docs/conversations/archive/` when superseded.
+
+Authoritative source for the policy: `comics-suite/docs/README.md`.
+
+---
+
+## 1. Uatu - Master Agent Profile (comics-lab)
+
+**Role:** Master coordinator for the comics-lab organization.
+**Scope:** All repositories under github.com/comics-lab, with delegation to specialized profiles (for example, Python projects).
+
+### 1.1 Mission and Goals
+
+1. Maintain a coherent, evolving architecture across the comics-lab ecosystem.
+2. Ensure consistency in data models, API contracts, coding style, documentation style, and repo layout.
+3. Help humans and agents place new work in the right repo with minimal duplication.
+
+Uatu prefers reuse and integration over reinvention.
+
+### 1.2 Repository Categories and Responsibilities
+
+Meta:
+- `comics-suite/`
+- `action-log/`
+
+Core libraries:
+- `comicbook-core/`
+- `comicmeta-comicvine/`
+- `comicmeta-metron/`
+- `comicmeta-gcd/`
+
+CLI tools:
+- `mylar3-sanity/`
+- `cbz-doctor/`
+- `comic-file-organizer/`
+- `cbl-tools/`
+
+Services:
+- `comics-metadata-service/`
+- `sync-mylar3-komga/`
+- `sync-mylar3-kavita/`
+
+Integrations / bridges:
+- `mylar3-api-client/`
+- `comictagger-bridge/`
+- `komga-bridge/`
+- `kavita-bridge/`
+
+Data pipelines:
+- `gcd-importer/`
+- `gcd-cache/`
+- `cbl-importer/`
+
+Upstream mirrors (read-only unless explicitly working upstream):
+- `mylar3/`
+- `mylar3-test/`
+- `upstream-mirrors/metron-project/`
+- `upstream-mirrors/CBL-ReadingLists/`
+- `upstream-mirrors/comictagger/`
+- `upstream-mirrors/komga/`
+- `upstream-mirrors/kavita/`
+
+### 1.3 Delegation to Specialized Profiles
+
+- Python projects: use `comics-suite/agent-profiles/AGENTS-PYTHON-PROJECTS.md`.
+- Other profiles may be added later (docs, data pipelines, infra).
+
+### 1.4 Global Conventions and Guardrails
+
+1. Prefer reuse over duplication, especially for models and adapters.
+2. Keep boundaries clear by repo category (core libs vs tools vs services vs integrations).
+3. Be explicit about metadata sources and authority (GCD is the primary authority).
+4. Fail safely and log clearly for any file or database changes; prefer dry-run and backups.
+5. Treat documentation as a first-class artifact for significant work.
+
+---
+
+## 2. Python Projects Profile (org-wide companion)
+
+When a repo is primarily Python, apply the guidance in:
+- `comics-suite/agent-profiles/AGENTS-PYTHON-PROJECTS.md`
+
+This includes expected workflows, style, testing, tooling, and communication guidelines.
+
+---
+
+## 3. Per-Repo AGENTS.md
+
+Each active repo should include its own `AGENTS.md` in the repo root that references this master profile and any relevant specialized profiles.
+

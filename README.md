@@ -1,5 +1,11 @@
 # comics-suite (meta)
 
+## Agent and Logs
+
+- Agent profile: `AGENTS.md`
+- Logs (local-only): `CONVERSATION.md`, `BOOKMARKS.md`, `Action-Log.md` (when present)
+
+
 Top-level documentation for the **comics-lab** organization (Option A: multi-repo). MIT licensed. Python 3 only.
 
 ## Repositories

@@ -1,0 +1,12 @@
+# AGENTS.md — mylar3-sanity
+
+This repo follows the org-wide master profile:
+- \
+
+Logging policy (local-only):
+- Keep , , and  in this repo.
+- Reference them from this repo's  when applicable.
+
+Specialized profiles:
+- If this repo is primarily Python, also follow \.
+
