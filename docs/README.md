@@ -62,4 +62,10 @@ echo "See: CONVERSATION.md, BOOKMARKS.md, Action-Log.md" >> your-package/README.
 
 - Review `DOCUMENTATION_INDEX.md` periodically to ensure all links work
 - Archive old conversations by moving them to `archive/` within the repo where they originated
+
+## Template Usage
+
+Truth-file templates live in `docs/templates/` and should be copied into each
+repo root as `COMPREHENSION.md`, `DECISIONS.md`, `ROADMAP.md`, and `GLOSSARY.md`.
+Org-level versions live in `docs/global-truths/`.
 - Keep `NEXT_STEPS.md` updated as items are completed
