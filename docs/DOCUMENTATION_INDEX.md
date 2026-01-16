@@ -1,8 +1,12 @@
 # Documentation Index — comics-lab
 
-This index lists local conversation logs, bookmarks, and action logs across the workspace. It points to the canonical location of each artifact and contains a short summary to help with discoverability. Logs remain in their originating repos.
+This index lists local log files, truth files, and key artifacts across the
+workspace. It points to the canonical local path and contains a short summary
+for discoverability. Logs remain in their originating repos.
 
-Files discovered and short summaries
+Guide: `docs/knowledge_files_guide.md`
+
+## Files discovered and short summaries
 
 - comic-file-organizer/CONVERSATION.md
   - Path: comic-file-organizer/CONVERSATION.md
@@ -24,14 +28,14 @@ Files discovered and short summaries
   - Path: comics-suite/docs/Action-Log.md
   - Summary: Chronological action log for comics-suite meta-operations and snapshots.
 
-Legacy copies in `docs/conversations/` (pre-local-only policy):
+## Legacy copies in `docs/conversations/` (pre-local-only policy)
 
 - `docs/conversations/comic-file-organizer_FULL_CONVERSATION.md` — full conversation transcript (copy of `comic-file-organizer/CONVERSATION.md`).
 - `docs/conversations/comic-file-organizer_BOOKMARKS.md` — copy of `comic-file-organizer/BOOKMARKS.md`.
 - `docs/conversations/org_level_Scripts_FULL.md` — full transcript copy of `org_level_Scripts/README.md`.
 - `docs/conversations/comics-suite_Action-Log.md` — copy of `comics-suite/docs/Action-Log.md`.
 
-Other artifacts (found during scan)
+## Other artifacts (found during scan)
 
 - mylar3-test/comic_file_organizer/dfa/README_EXTRA.md
   - Path: mylar3-test/comic_file_organizer/dfa/README_EXTRA.md
@@ -41,7 +45,7 @@ Other artifacts (found during scan)
   - Path: .github/Project-Setup-Guide.md
   - Summary: Repository-level project setup guide and appendices (will be updated to link to this documentation index).
 
-Goals and next recommended steps
+## Goals and next recommended steps
 
 1. Use this DOCUMENTATION_INDEX.md as the single entry-point to find conversation logs and bookmarks.
 2. Keep logs in their originating repos; add or update entries here for discoverability.
