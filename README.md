@@ -1,5 +1,13 @@
 # comics-suite (meta)
 
+## Truth Files
+
+- `COMPREHENSION.md`
+- `DECISIONS.md`
+- `ROADMAP.md`
+- `GLOSSARY.md`
+
+
 Top-level documentation for the **comics-lab** organization (Option A: multi-repo). MIT licensed. Python 3 only.
 
 ## Repositories
