@@ -7,6 +7,7 @@ This directory contains centralized documentation and an index of local conversa
 - `DOCUMENTATION_INDEX.md` - Central index of all conversation logs and bookmarks (links to local repo files)
 - `knowledge_files_guide.md` - Placement guide for truth files, logs, and index usage
 - `templates/` - Truth-file templates (COMPREHENSION, DECISIONS, ROADMAP, GLOSSARY)
+- `global-truths/` - Org-level truth files (COMPREHENSION, DECISIONS, ROADMAP, GLOSSARY)
 - `conversations/` - Legacy copies and historical snapshots (new logs stay local)
 - `NEXT_STEPS.md` - Actionable todo items and priorities
 - Other documentation (architecture, standards, etc.)
