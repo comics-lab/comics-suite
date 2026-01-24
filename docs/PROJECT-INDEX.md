@@ -59,6 +59,11 @@ The **comics-lab** organization is a suite of coordinated Python 3 utilities and
   - Location: `./.github/`
   - Contains: Organization profile, project setup guides, security documentation
 
+### Infrastructure
+- **cirrus** - Home lab ops and architecture docs (Cirrus host)
+  - Location: `./cirrus/`
+  - Purpose: Host build, storage, hardening, incident records, and lab runbooks
+
 ## Technical Architecture
 
 ### Common Features (All Repositories)
@@ -94,6 +99,7 @@ The **comics-lab** organization is a suite of coordinated Python 3 utilities and
 | comicmeta-gcd | Skeleton | CLI stub | Individual git repo |
 | comics-suite | Documentation | Complete docs + scripts | Individual git repo |
 | .github | Configuration | Organization profile + guides | Individual git repo |
+| cirrus | Infrastructure | Host ops docs + runbooks | Individual git repo |
 
 ## File Structure Overview
 
@@ -160,6 +166,12 @@ comics-lab/
 │   │   └── README.md
 │   ├── LICENSE (MIT)
 │   └── Project-Setup-Guide.md
+├── cirrus/                    # Lab ops docs for Cirrus host
+│   ├── architecture.md
+│   ├── hardening.md
+│   ├── logical_storage.md
+│   ├── cirrus_checklist.md
+│   └── the_lab/
 └── mylar3-sanity/            # Mylar3 database checker
     ├── mylar3_sanity/
     │   ├── __init__.py

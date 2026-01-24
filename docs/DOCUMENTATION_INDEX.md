@@ -24,6 +24,18 @@ Guide: `docs/knowledge_files_guide.md`
   - Path: org_level_Scripts/README.md
   - Summary: Conversation log and diagnosis related to `git_pull.sh` and `git_push.sh`, including the root cause of a loop hang, the applied fixes (use `mapfile` + array), and usage examples.
 
+- cirrus/architecture.md
+  - Path: cirrus/architecture.md
+  - Summary: Cirrus lab architecture, truth model, storage roles, and migration guardrails.
+
+- cirrus/The_Book.md
+  - Path: cirrus/The_Book.md
+  - Summary: Master checklist/index for the Comics Lab book.
+
+- cirrus/the_lab/comics-lab-book/README.md
+  - Path: cirrus/the_lab/comics-lab-book/README.md
+  - Summary: Canonical docs structure for the Comics Lab book (chapter folders).
+
 - comics-suite/docs/Action-Log.md
   - Path: comics-suite/docs/Action-Log.md
   - Summary: Chronological action log for comics-suite meta-operations and snapshots.
